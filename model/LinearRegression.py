@@ -138,6 +138,11 @@ print(X_train.shape,y_train.shape,X_test.shape,y_test.shape)
 from sklearn.linear_model import LinearRegression
 
 model=LinearRegression()
+print("Model : ", model)
+model.fit(X_train,y_train)
+y_pred=model.predict(X_test)
+print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
+
 grid_params={
     'normalize':[True,False]
 }
@@ -153,6 +158,7 @@ model=modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 from sklearn.tree import DecisionTreeRegressor
 
 model=DecisionTreeRegressor()
+print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
@@ -172,6 +178,7 @@ model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 from sklearn.ensemble import RandomForestRegressor
 
 model=RandomForestRegressor()
+print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
@@ -191,6 +198,7 @@ model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 import xgboost as xgb 
 
 model = xgb.XGBRegressor()
+print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
@@ -212,6 +220,7 @@ model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 from sklearn.svm import SVR
 
 model=SVR()
+print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
