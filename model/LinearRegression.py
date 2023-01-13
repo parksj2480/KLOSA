@@ -130,7 +130,9 @@ X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_sta
 print(X_train.shape,y_train.shape,X_test.shape,y_test.shape)
 
 
-# In[45]:
+# ### Linear, DecisionTree, RandomForest, XGboost, SVM  Regression
+
+# In[53]:
 
 
 # LinearRegression Model
@@ -138,7 +140,6 @@ print(X_train.shape,y_train.shape,X_test.shape,y_test.shape)
 from sklearn.linear_model import LinearRegression
 
 model=LinearRegression()
-print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
@@ -147,10 +148,10 @@ grid_params={
     'normalize':[True,False]
 }
 
-model=modelfit(model, grid_params, X_train, y_train, X_test, y_test)
+#model=modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 
 
-# In[46]:
+# In[54]:
 
 
 # DecisionTree Regression Model
@@ -158,7 +159,6 @@ model=modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 from sklearn.tree import DecisionTreeRegressor
 
 model=DecisionTreeRegressor()
-print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
@@ -168,17 +168,16 @@ grid_params={
     'max_depth': [1, 2, 3, 4, 5]
 }
 
-model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
+#model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 
 
-# In[51]:
+# In[55]:
 
 
 # RandomForest Regression Model
 from sklearn.ensemble import RandomForestRegressor
 
 model=RandomForestRegressor()
-print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
@@ -188,17 +187,16 @@ grid_params={
     'max_depth': [1,2,3,4],
 }
 
-model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
+#model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 
 
-# In[52]:
+# In[56]:
 
 
 # XGboost Regression Model
 import xgboost as xgb 
 
 model = xgb.XGBRegressor()
-print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
@@ -210,17 +208,16 @@ grid_params={
     'n_estimators': [250,500,1000,1500,2000]
 }
 
-model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
+#model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 
 
-# In[ ]:
+# In[57]:
 
 
 # Support Vector Regression Model
 from sklearn.svm import SVR
 
 model=SVR()
-print("Model : ", model)
 model.fit(X_train,y_train)
 y_pred=model.predict(X_test)
 print("기본 점수 :",np.sqrt(mean_squared_error(y_test, y_pred)))
@@ -233,5 +230,5 @@ grid_params={
     'gamma' : ('auto','scale')
 }
 
-model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
+#model = modelfit(model, grid_params, X_train, y_train, X_test, y_test)
 
